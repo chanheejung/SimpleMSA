@@ -1,0 +1,16 @@
+server:
+  port: 8761
+
+spring:
+  application:
+    name: service-discovery
+
+eureka:
+  client:
+    registerWithEureka: false # 유레카 서비스에 (자신을) 등록 여부
+    fetchRegistry: false  # 레지스트리 정보를 로컬에 캐싱하지 않는다. (유레카 클라이언트 기반) 로컬 캐싱 여부
+  serviceUrl:
+    defaultZone: http://localhost:8762/eureka/
+  server:
+    enable-self-preservation: false
+    response-cache-update-interval-ms: 5000 # Eureka는 서비스들의 정보를 캐싱하며, 캐싱을 업데이트하는 주기를 설정한다.
