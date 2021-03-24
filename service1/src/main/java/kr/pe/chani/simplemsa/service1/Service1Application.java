@@ -11,12 +11,6 @@ import org.springframework.web.client.RestTemplate;
 @EnableDiscoveryClient
 public class Service1Application {
 
-	@LoadBalanced
-	@Bean
-	public RestTemplate getRestTemplate(){
-		return new RestTemplate();
-	}
-
 	public static void main(String[] args) {
 		SpringApplication.run(Service1Application.class, args);
 	}
