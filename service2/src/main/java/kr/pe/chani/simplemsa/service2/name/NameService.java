@@ -1,4 +1,4 @@
-package kr.pe.chani.simplemsa.service2.hello;
+package kr.pe.chani.simplemsa.service2.name;
 
 import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.stereotype.Service;
