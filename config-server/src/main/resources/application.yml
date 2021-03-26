@@ -1,0 +1,18 @@
+server:
+  port: 8888
+
+spring:
+  profiles:
+    active: native
+  cloud:
+    config:
+      server:
+        native:
+          searchLocations: file:///D:\SimpleMSA\config-server\src\main\resources\config\service1,
+            file:///D:\SimpleMSA\config-server\src\main\resources\config\service2
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
