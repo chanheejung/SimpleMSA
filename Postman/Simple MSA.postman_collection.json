@@ -1,0 +1,486 @@
+{
+	"info": {
+		"_postman_id": "9fb4391d-022c-45ee-986a-0448d6fbdfd9",
+		"name": "Simple MSA",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "1. Service Discovery",
+			"item": [
+				{
+					"name": "Eureka - apps (서비스 조회)",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8761/eureka/apps",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8761",
+							"path": [
+								"eureka",
+								"apps"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Service1 - discovery services",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8011/services",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8011",
+							"path": [
+								"services"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Service2 - name",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8021/name/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8021",
+							"path": [
+								"name",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "2. Rest API Call",
+			"item": [
+				{
+					"name": "Service1 - name (by RestRemplate)",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8011/resttemplate/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8011",
+							"path": [
+								"resttemplate",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Service1 - name (by Ribbon)",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8011/ribbon/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8011",
+							"path": [
+								"ribbon",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Service1 - name (by Feign)",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8011/feign/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8011",
+							"path": [
+								"feign",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "3. API G/W",
+			"item": [
+				{
+					"name": "API G/W - actuator/routes",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5555/actuator/routes",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5555",
+							"path": [
+								"actuator",
+								"routes"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "API G/W - name (by Feign) Copy",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5555/api/service1/feign/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5555",
+							"path": [
+								"api",
+								"service1",
+								"feign",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "API G/W - service2 name",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5555/api/service2/name/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5555",
+							"path": [
+								"api",
+								"service2",
+								"name",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "4. Hystrix",
+			"item": [
+				{
+					"name": "Service1 - Hystrix Test1",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8011/hystrix1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8011",
+							"path": [
+								"hystrix1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Service1 - Hystrix Test2",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8011/hystrix2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8011",
+							"path": [
+								"hystrix2"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "5. Config Server",
+			"item": [
+				{
+					"name": "Conf-Server - Service1 기본 설정 가져오기",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8888/service1/default",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8888",
+							"path": [
+								"service1",
+								"default"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Conf-Server - Service1 DEV 설정 가져오기",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8888/service1/dev",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8888",
+							"path": [
+								"service1",
+								"dev"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Service1 - Get Property from Config Server",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8011/config/example-property",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8011",
+							"path": [
+								"config",
+								"example-property"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Service1 - refresh",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8011/actuator/refresh",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8011",
+							"path": [
+								"actuator",
+								"refresh"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Conf-Server - encrypt",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "git-password"
+						},
+						"url": {
+							"raw": "http://localhost:8888/encrypt",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8888",
+							"path": [
+								"encrypt"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Conf-Server - decrypt",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "469cc1eb5e7ae9b8f06a40431b001fc0b4e866f6970099a2904f4e8274fe462bab646b2cfd3f8992a0b652652e609af1"
+						},
+						"url": {
+							"raw": "http://localhost:8888/decrypt",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8888",
+							"path": [
+								"decrypt"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Service1 - Get Password from Config Server",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8011/config/example-password",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8011",
+							"path": [
+								"config",
+								"example-password"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "6. Graceful Shutdown",
+			"item": [
+				{
+					"name": "Service1 - Gracefull Shutdown",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8011/actuator/shutdown",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8011",
+							"path": [
+								"actuator",
+								"shutdown"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Service2 - Gracefull Shutdown",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8021/actuator/shutdown",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8021",
+							"path": [
+								"actuator",
+								"shutdown"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Conf-Server- Gracefull Shutdown",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8888/actuator/shutdown",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8888",
+							"path": [
+								"actuator",
+								"shutdown"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "API GW - Gracefull Shutdown",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5555/actuator/shutdown",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5555",
+							"path": [
+								"actuator",
+								"shutdown"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
