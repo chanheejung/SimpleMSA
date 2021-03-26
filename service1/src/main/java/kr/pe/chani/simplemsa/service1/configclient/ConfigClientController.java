@@ -19,4 +19,9 @@ public class ConfigClientController {
         return configClientService.exampleProperty();
     }
 
+    @GetMapping(value = "/example-password")
+    public String examplePassword() {
+        return configClientService.examplePassword();
+    }
+
 }

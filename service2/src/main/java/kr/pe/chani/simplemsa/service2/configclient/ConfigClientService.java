@@ -10,7 +10,14 @@ public class ConfigClientService {
     @Value("${example.property}")
     private String exampleProperty;
 
+    @Value("${example.password}")
+    private String examplePassword;
+
     public String exampleProperty() {
         return exampleProperty;
+    }
+
+    public String examplePassword() {
+        return examplePassword;
     }
 }
