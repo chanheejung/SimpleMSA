@@ -1,6 +1,9 @@
 spring:
-  application:
-    name: config-server
+  cloud:
+    config:
+      server:
+        encrypt:
+          enabled: false # 컨피그 서버에서 클라이언트 설정의 {chiper} 파일을 복호화 하지 않는다. 복호하는 클라이언트에서 처리
 
 # Config Server 암호화 키
 #   키관리 방법
