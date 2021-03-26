@@ -1,3 +1,10 @@
 spring:
   application:
     name: config-server
+
+# Config Server 암호화 키
+#   키관리 방법
+#    1. 아래와 같이 프로퍼티에 키를 직접관리
+#    2. 운영체제의 환경설정(key: ENCRYPT_KEY / value: 암호화키)에 등록 관리
+encrypt:
+  key: 0A9F9C41980A9F2B5423127084BE17905BF6F67FD2A5CA26EFAFA9AD76E66B53  #원본 HEXA 256bit 대칭키
