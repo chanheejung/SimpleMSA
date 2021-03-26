@@ -10,7 +10,7 @@ spring:
           # Private Git으로 username/password 필요
           uri: https://github.com/chanheejung/config-priv-repo/
           username: chanheejung
-          password: Set Private Git's Password
+          password: "{cipher}2d6412a73ed441f4e9b9662a53a13ab5cd29435ece8dd6f6838b57db7c6cee4a"
 
           # Public Git으로 username/password 필요 없음
 #          uri: https://github.com/chanheejung/config-repo/
