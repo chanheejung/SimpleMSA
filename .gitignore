@@ -42,3 +42,4 @@ mvnw
 /build/
 .gradletasknamecache
 config-priv-repo/
+config-public-repo/
