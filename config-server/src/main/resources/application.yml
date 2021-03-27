@@ -10,12 +10,11 @@ spring:
         git:
           searchPaths: service1,service2
           # Private Git으로 username/password 필요
-          uri: https://github.com/chanheejung/config-priv-repo/
-          username: chanheejung
-          password: ENC(KR3BlZAp1OeJOOwxySqDgxEboxA8DGED) # Jasypt의 암복호화는 bootstrap.xml에서 적용되지 않는다.
-
+#          uri: https://github.com/chanheejung/config-priv-repo/
+#          username: chanheejung
+#          password: ENC(KR3BlZAp1OeJOOwxySqDgxEboxA8DGED) # Jasypt의 암복호화는 bootstrap.xml에서 적용되지 않는다.
           # Public Git으로 username/password 필요 없음
-#          uri: https://github.com/chanheejung/config-repo/
+          uri: https://github.com/chanheejung/config-repo/
 
         # File based Properties
 #        native:
