@@ -6,6 +6,7 @@ import kr.pe.chani.simplemsa.service1.rest.RibbonClientCommunicator;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cloud.client.discovery.DiscoveryClient;
+import org.springframework.core.env.Environment;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -26,6 +27,9 @@ public class DiscoveryService {
 
     @Autowired
     FeignClientCommunicator feignClientCommunicator;
+
+    @Autowired
+    Environment environment;
 
     public List getServices(){
         List<String> services = new ArrayList<String>();
@@ -50,17 +54,20 @@ public class DiscoveryService {
     }
 
     public String resttemplate(String id) {
-        log.info("Communicating by RestTemplateClientCommunicator.");
+        log.info("Communicating by RestTemplateClientCommunicator. Service1 Port : {}"
+                , environment.getProperty("local.server.port"));
         return restTemplateClientCommunicator.getName(id);
     }
 
     public String ribbon(String id) {
-        log.info("Communicating by DiscoveryClientCommunicator.");
+        log.info("Communicating by DiscoveryClientCommunicator. Service1 Port : {}"
+                , environment.getProperty("local.server.port"));
         return ribbonClientCommunicator.getName(id);
     }
 
     public String feign(String id) {
-        log.info("Communicating by FeignClientCommunicator.");
+        log.info("Communicating by FeignClientCommunicator. Service1 Port : {}"
+                , environment.getProperty("local.server.port"));
         return id + " is " + feignClientCommunicator.getName(id);
     }
 

@@ -19,7 +19,7 @@ eureka:
     registryFetchIntervalSeconds: 5 # eureka에게 서비스 정보를 가져오는 주기
     disable-delta: true # eureka에게 서비스 정보를 가져올때 변경된 내용만 가져온다. (false로 하면 전체를 가져오기에 대역폭 낭비이다.)
     serviceUrl:
-      defaultZone: http://localhost:8761/eureka/
+      defaultZone: http://localhost:8761/eureka/,http://localhost:8762/eureka/
 
 management:
   endpoint:

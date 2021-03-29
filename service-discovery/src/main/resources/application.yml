@@ -7,10 +7,10 @@ spring:
 
 eureka:
   client:
-    register-with-eureka: false # 유레카 서비스에 (자신을) 등록 여부
+    register-with-eureka: true # 유레카 서비스에 (자신을) 등록 여부
     fetch-registry: false  # 레지스트리 정보를 로컬에 캐싱하지 않는다. (유레카 클라이언트 기반) 로컬 캐싱 여부
     serviceUrl:
-      defaultZone: http://localhost:8761/eureka/ # 설정을 하지 않으면 기본 http://localhost:8761/ 로 연동된다.
+      defaultZone: http://localhost:8761/eureka/,http://192.168.0.153:8762/eureka/ # 설정을 하지 않으면 기본 http://localhost:8761/ 로 연동된다.
   server:
     enable-self-preservation: false
     eviction-interval-timer-in-ms: 3000 # EvictionTask가 Expected heartbeats 수와 Actual heartbeats 수를 비교하여 Self-Preservation 모드 여부를 판단 간격(기본 1분 60*1000)
