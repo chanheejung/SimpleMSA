@@ -26,6 +26,9 @@ zuul:
     service2: /srve2/**
 
 management:
+  endpoint:
+    shutdown:
+      enabled: true
   endpoints:
     web:
       exposure:

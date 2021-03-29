@@ -22,6 +22,9 @@ spring:
 #            file:///D:\devchan\MyStudy\SimpleMSA\config-server\src\main\resources\config\service2
 
 management:
+  endpoint:
+    shutdown:
+      enabled: true
   endpoints:
     web:
       exposure:
