@@ -3,7 +3,7 @@ server:
 
 spring:
   application:
-    name: config-server
+    name: configserver
   cloud:
     config:
       server:
@@ -20,6 +20,19 @@ spring:
 #        native:
 #          searchLocations: file:///D:\devchan\MyStudy\SimpleMSA\config-server\src\main\resources\config\service1,
 #            file:///D:\devchan\MyStudy\SimpleMSA\config-server\src\main\resources\config\service2
+
+eureka:
+  instance:
+    preferIpAddress: true
+    lease-renewal-interval-in-seconds: 1 # Eureka Server 에 heartbeat 를 보내는 빈도를 나타내며 기본값은 30초
+    lease-expiration-duration-in-seconds: 2 # Server 레지스트리에서 설정된 시간동안 heartbeat를 받지 못하면 해당 Eureka Instance를 Registry에서 제거 (기본 90초)
+  client:
+    register-with-eureka: true # 유레카 서비스에 등록 여부
+    fetch-registry: true
+    registryFetchIntervalSeconds: 5 # eureka에게 서비스 정보를 가져오는 주기
+    disable-delta: true # eureka에게 서비스 정보를 가져올때 변경된 내용만 가져온다. (false로 하면 전체를 가져오기에 대역폭 낭비이다.)
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/,http://localhost:8762/eureka/ # 설정을 하지 않으면 기본 http://localhost:8761/ 로 연동된다.
 
 management:
   endpoint:

@@ -4,7 +4,8 @@ spring:
       default
   cloud:
     config:
-      uri: http://localhost:8888
+      discovery:
+        enabled: true
 
 encrypt:
   key: 0A9F9C41980A9F2B5423127084BE17905BF6F67FD2A5CA26EFAFA9AD76E66B53  #원본 HEXA 256bit 대칭키
