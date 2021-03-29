@@ -11,9 +11,9 @@ eureka:
     fetch-registry: false  # 레지스트리 정보를 로컬에 캐싱하지 않는다. (유레카 클라이언트 기반) 로컬 캐싱 여부
     serviceUrl:
       defaultZone: http://localhost:8761/eureka/ # 설정을 하지 않으면 기본 http://localhost:8761/ 로 연동된다.
-
   server:
     wait-time-in-ms-when-sync-empty: 5  # 서버가 요청을 받기 전 대기할 초기 시간(ms) : 거의 대기 없음 (default 5분 : 상용에서는 모든 서비스가 등록 되길 기다리기 위해 5분 후 정보를 공유)
+    response-cache-update-interval-ms: 3000 # 서비스에게 제공을 위해Eureka는 서비스들의 정보를 캐싱하며, 캐싱을 업데이트하는 주기를 설정한다.
 
 management:
   endpoints:
