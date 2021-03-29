@@ -11,6 +11,8 @@ spring:
 eureka:
   instance:
     prefer-ip-address: true
+    lease-renewal-interval-in-seconds: 1 # Eureka Server 에 heartbeat 를 보내는 빈도를 나타내며 기본값은 30초
+    lease-expiration-duration-in-seconds: 2 # Server 레지스트리에서 설정된 시간동안 heartbeat를 받지 못하면 해당 Eureka Instance를 Registry에서 제거 (기본 90초)
   client:
     register-with-eureka: true # 유레카 서비스에 등록 여부
     fetch-registry: true
