@@ -31,27 +31,25 @@ public class HystrixTestService {
     }
 
     @HystrixCommand(
-            fallbackMethod = "buildFallbackIdInfo",
-            // 스레드 풀의 고유 이름 지정
-            threadPoolKey = "idInfoThreadPool",
-            // 스레드 풀 속성으로 동작 정의 및 설정
             threadPoolProperties =
                     // 스레드 풀의 갯수를 정의
                     {@HystrixProperty(name = "coreSize",value="30"),
                             // 스레드 풀 앞에 배치할 큐와 큐에 넣을 요청 수를 정의
                             //  => 스레드가 분주할 때 큐 이용
                             @HystrixProperty(name="maxQueueSize", value="10")},
+            /** 정의 : 15초 동안 10건의 호출 중 75% 에러(3초 이상 SELECT 지연)가 발생하면
+             *              Circuit을 7초 동안 Open 하라 */
             commandProperties={
-                    // Timeout 설정 12초
-                    // @HystrixProperty(name="execution.isolation.thread.timeoutInMilliseconds", value="12000"),
-                    // 히스트릭스가 호출 차단을 고려하는데 필요한 시간
-                    @HystrixProperty(name="circuitBreaker.requestVolumeThreshold", value="10"),
-                    // 호출 차단 실패 비율
-                    @HystrixProperty(name="circuitBreaker.errorThresholdPercentage", value="75"),
-                    // 차단 후 서비스의 회복 상태를 확인할 때까지 대기할 시간
-                    @HystrixProperty(name="circuitBreaker.sleepWindowInMilliseconds", value="7000"),
-                    // 서비스 호출 문제를 모니터할 시간 간격을 설정
+                    // DB SELECT Timeout 설정 3초
+                   @HystrixProperty(name="execution.isolation.thread.timeoutInMilliseconds", value="3000"),
+                    // 서비스 호출 문제를 모니터할 시간 간격을 설정 (위 정의에서 15초 동안에 해당)
                     @HystrixProperty(name="metrics.rollingStats.timeInMilliseconds", value="15000"),
+                    // 히스트릭스가 호출 차단을 고려하는데 필요한 요청 수 (위 정의에서 10건에 해당)
+                    @HystrixProperty(name="circuitBreaker.requestVolumeThreshold", value="10"),
+                    // 호출 차단 실패 비율 (위 정의에서 75%에 해당)
+                    @HystrixProperty(name="circuitBreaker.errorThresholdPercentage", value="75"),
+                    // 차단 후 서비스의 회복 상태를 확인할 때까지 대기할 시간 (위 정의에서 7초에 해당)
+                    @HystrixProperty(name="circuitBreaker.sleepWindowInMilliseconds", value="7000"),
                     // 설정한 시간 간격 동안 통계를 수집할 횟수를 설정
                     @HystrixProperty(name="metrics.rollingStats.numBuckets", value="5")}
     )
